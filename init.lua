@@ -196,6 +196,13 @@ vim.keymap.set('i', 'jk', '<Esc>')
 -- Enter command mode with ø
 vim.keymap.set('n', 'ø', ':')
 
+-- [[ Custom filetypes ]]
+vim.filetype.add({
+  extension = {
+    launch = "xml"
+  }
+})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -869,6 +876,9 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- Highlight and delete trailing whitespace
+      require('mini.trailspace').setup()
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -935,6 +945,19 @@ require('lazy').setup({
     'sindrets/diffview.nvim',
     opts = {},
   },
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { '~/', '~/Downloads', '/' },
+      -- log_level = 'debug',
+    }
+  },
+
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
