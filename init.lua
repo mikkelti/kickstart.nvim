@@ -965,6 +965,10 @@ require('lazy').setup({
       -- log_level = 'debug',
     }
   },
+  {
+    'github/copilot.vim',
+    tag = 'v1.38.0',
+  },
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
