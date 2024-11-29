@@ -199,7 +199,8 @@ vim.keymap.set('n', 'ø', ':')
 -- [[ Custom filetypes ]]
 vim.filetype.add({
   extension = {
-    launch = "xml"
+    launch = "xml",
+    rviz = "yaml"
   }
 })
 
