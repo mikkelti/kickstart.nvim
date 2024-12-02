@@ -197,12 +197,12 @@ vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', 'ø', ':')
 
 -- [[ Custom filetypes ]]
-vim.filetype.add({
+vim.filetype.add {
   extension = {
-    launch = "xml",
-    rviz = "yaml"
-  }
-})
+    launch = 'xml',
+    rviz = 'yaml',
+  },
+}
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -219,8 +219,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Automatically trim trailing whitespace on write
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
   callback = function()
     MiniTrailspace.trim()
   end,
@@ -949,34 +949,12 @@ require('lazy').setup({
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
-  -- My own plugins
-  {
-    'sindrets/diffview.nvim',
-    opts = {},
-  },
-  {
-    'rmagatti/auto-session',
-    lazy = false,
-
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
-    opts = {
-      suppressed_dirs = { '~/', '~/Downloads', '/' },
-      -- log_level = 'debug',
-    }
-  },
-  {
-    'github/copilot.vim',
-    tag = 'v1.38.0',
-  },
-
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
