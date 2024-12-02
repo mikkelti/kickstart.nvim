@@ -23,11 +23,4 @@ return {
     'github/copilot.vim',
     tag = 'v1.38.0',
   },
-  {
-    'chipsenkbeil/distant.nvim',
-    branch = 'v0.3',
-    config = function()
-      require('distant'):setup()
-    end,
-  },
 }
