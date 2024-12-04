@@ -23,4 +23,7 @@ return {
     'github/copilot.vim',
     tag = 'v1.38.0',
   },
+  {
+    'kmonad/kmonad-vim',
+  },
 }
