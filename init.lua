@@ -202,6 +202,10 @@ vim.filetype.add {
     launch = 'xml',
     rviz = 'yaml',
   },
+  pattern = {
+    ['${HOME}/.config/i3/config.*'] = 'i3config',
+    ['${HOME}/.config/i3status/config.*'] = 'conf',
+  },
 }
 
 -- [[ Basic Autocommands ]]
