@@ -199,6 +199,7 @@ vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Enter command mode with ø
 vim.keymap.set('n', 'ø', ':')
+vim.keymap.set('n', ';', ':')
 
 -- [[ Custom filetypes ]]
 vim.filetype.add {
