@@ -234,6 +234,16 @@ do
   -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
   -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+  --  Navigate tabs with CTRL+<np>
+  vim.keymap.set('n', '<C-n>', 'gt', { desc = 'Move to next tab' })
+  vim.keymap.set('n', '<C-p>', 'gT', { desc = 'Move to prev tab' })
+
+  -- Escape with jk
+  vim.keymap.set('i', 'jk', '<Esc>')
+
+  -- Enter command mode with ;
+  vim.keymap.set('n', ';', ':')
+
   -- [[ Basic Autocommands ]]
   --  See `:help lua-guide-autocommands`
 
@@ -244,6 +254,14 @@ do
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
     callback = function() vim.hl.on_yank() end,
+  })
+
+  -- Automatically trim trailing whitespace on write
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*',
+    callback = function()
+      MiniTrailspace.trim()
+    end,
   })
 end
 
@@ -438,6 +456,9 @@ do
   -- cursor location to LINE:COLUMN
   ---@diagnostic disable-next-line: duplicate-set-field
   statusline.section_location = function() return '%2l:%-2v' end
+
+  -- Highlight and delete trailing whitespace
+  require('mini.trailspace').setup()
 
   -- ... and there is more!
   --  Check out: https://github.com/nvim-mini/mini.nvim
