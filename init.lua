@@ -244,6 +244,9 @@ do
   -- Enter command mode with ;
   vim.keymap.set('n', ';', ':')
 
+  -- Toggle git blame
+  vim.keymap.set('n', '<leader>b', '<cmd>BlameToggle<CR>', { desc = 'Git [B]lame' })
+
   -- [[ Basic Autocommands ]]
   --  See `:help lua-guide-autocommands`
 
@@ -460,6 +463,10 @@ do
 
   -- ... and there is more!
   --  Check out: https://github.com/nvim-mini/mini.nvim
+
+  -- Git plugins
+  vim.pack.add { gh 'FabijanZulj/blame.nvim' }
+  require('blame').setup()
 end
 
 -- ============================================================
