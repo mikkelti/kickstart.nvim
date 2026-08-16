@@ -724,6 +724,8 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
 
+    yamlls = {}, -- YAML (respects in-file `# yaml-language-server: $schema=...` comments)
+
     basedpyright = {
       settings = {
         basedpyright = {
