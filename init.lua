@@ -234,6 +234,8 @@ do
   -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
   -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+  -- [[ Personal Keymaps ]]
+
   --  Navigate tabs with CTRL+<np>
   vim.keymap.set('n', '<C-n>', 'gt', { desc = 'Move to next tab' })
   vim.keymap.set('n', '<C-p>', 'gT', { desc = 'Move to prev tab' })
@@ -246,6 +248,12 @@ do
 
   -- Toggle git blame
   vim.keymap.set('n', '<leader>b', '<cmd>BlameToggle<CR>', { desc = 'Git [B]lame' })
+
+  --  Inspect plugin state and pending updates
+  vim.keymap.set('n', '<leader>pi', '<cmd>lua vim.pack.update(nil, { offline = true})<CR>', { desc = '[P]lugin [I]nspect' })
+
+  --  Update plugins
+  vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>', { desc = '[P]lugin [U]pdate' })
 
   -- [[ Basic Autocommands ]]
   --  See `:help lua-guide-autocommands`
@@ -393,6 +401,7 @@ do
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
       { 'gr', group = 'LSP Actions', mode = { 'n' } },
+      { '<leader>p', group = '[P]lugin' },
     },
   }
 
