@@ -414,15 +414,23 @@ do
   vim.pack.add { gh 'folke/tokyonight.nvim' }
   ---@diagnostic disable-next-line: missing-fields
   require('tokyonight').setup {
+    style = 'storm',
     styles = {
       comments = { italic = false }, -- Disable italics in comments
     },
   }
 
-  -- Load the colorscheme here.
-  -- Like many other themes, this one has different styles, and you could load
-  -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  vim.cmd.colorscheme 'tokyonight-storm'
+  -- Neovim updates 'background' when kitty switches light/dark. Neovim then
+  -- re-sources the *variant* last loaded (e.g. tokyonight-day), which makes
+  -- tokyonight fall back to moon for dark; reloading the plain scheme picks
+  -- `style` for dark and day for light.
+  vim.cmd.colorscheme 'tokyonight'
+  vim.api.nvim_create_autocmd('OptionSet', {
+    pattern = 'background',
+    callback = function()
+      vim.cmd.colorscheme 'tokyonight'
+    end,
+  })
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
